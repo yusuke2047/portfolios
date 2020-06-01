@@ -1,0 +1,567 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------
+ * 共通
+ * ---------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: #fff;
+  font-family: Nunito;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+input,
+textarea {
+  border: none;
+  color: #fff;
+  font: inherit;
+  outline: none;
+}
+
+.mainWrapper {
+  margin: 0 auto;
+  padding: 30px;
+  width: 970px;
+}
+
+.btnCmn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 10px;
+  transition: 0.2s;
+  width: 140px;
+}
+
+.btnCmn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.gameFinalResultCmn {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-top: 240px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.gameFinalResultMsgCmn {
+  background-color: rgba(96, 0, 255, 0.6);
+  font-size: 7rem;
+  margin-bottom: 50px;
+}
+
+.gameAddPointMsgCmn {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.gameAddPointMsgCmn span {
+  color: #f00;
+}
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ----------------------------------------------------------------------
+ * indexページ
+ * ---------------------------------------------------------------------- */
+.indexPage {
+  background-color: #000;
+}
+
+/* トップ部分 */
+.userName {
+  background-color: rgba(96, 198, 96, 0.2);
+  border-radius: 6px;
+  box-shadow: 0 0 10px #f00;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 auto 20px;
+  padding: 10px;
+  width: 240px;
+}
+
+.radarChartForm input[type="image"],
+.userMsgForm input[type="image"] {
+  cursor: pointer;
+  margin: 0 10px;
+  width: 20px;
+}
+
+.dayStatus {
+  color: #fc0;
+}
+
+/* ミドル部分 */
+.games {
+  background: #333 url(../images/bg.jpg) no-repeat top left/cover;
+  height: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.jankenBox {
+  position: absolute;
+  top: 160px;
+  left: 254px;
+}
+
+.oseroBox {
+  position: absolute;
+  top: 110px;
+  left: 510px;
+}
+
+.slotBox {
+  position: absolute;
+  top: 150px;
+  left: 620px;
+}
+
+.memoryBox {
+  position: absolute;
+  top: 210px;
+  left: 440px;
+}
+
+.tenSecondsBox {
+  position: absolute;
+  top: 240px;
+  left: 680px;
+}
+
+.link {
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  font-size: 1.6rem;
+  padding: 6px;
+}
+
+.link:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px rgba(100, 200, 100, 0.8);
+  transform: scale(1.1);
+}
+
+/* ボトム部分 */
+.nav .btnCmn {
+  margin: 0 10px;
+}
+
+.radarChartForm,
+.userMsgForm,
+.rankingForm,
+.logoutForm {
+  display: inline-block;
+}
+
+/* モーダル */
+.forAccountModal {
+  padding: 80px 0 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.modalContents {
+  margin: 0 auto;
+  position: relative;
+  width: 970px;
+  z-index: 2;
+}
+
+.modalTitle {
+  border-bottom: 1px solid;
+  display: inline-block;
+  margin-bottom: 50px;
+  padding-bottom: 6px;
+}
+
+.modalHeading {
+  margin-bottom: 20px;
+}
+
+.modalText {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  line-height: 2;
+  margin-bottom: 40px;
+}
+
+.forAccountModal .mask {
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1;
+}
+
+.myRadarChart {
+  margin-bottom: 50px;
+}
+
+.forAccountTable {
+  margin: 0 auto 30px;
+  text-align: center;
+  width: 600px;
+}
+
+.forAccountTable td,
+.forAccountTable th {
+  padding: 10px;
+}
+
+.messageTable th:first-child {
+  width: 50%;
+}
+
+.messageTable th:nth-child(2) {
+  width: 30%;
+}
+
+.messageTable th:nth-child(3) {
+  width: 20%;
+}
+
+.rankingTable th:first-child {
+  width: 25%;
+}
+
+.rankingTable th:nth-child(2) {
+  width: 38%;
+}
+
+.rankingTable th:nth-child(3) {
+  width: 37%;
+}
+
+.rank img {
+  width: 30px;
+}
+
+.sendMsg input[type="submit"] {
+  background: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sendMsg input[type="submit"]:hover {
+  border-bottom: 1px solid;
+}
+
+.forAccountForm {
+  margin: 0 auto;
+  width: 600px;
+}
+
+.forAccountForm input[type="text"],
+.forAccountForm input[type="email"],
+.forAccountForm input[type="password"],
+.forAccountForm textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 40px;
+  padding: 6px;
+  width: 100%;
+}
+
+.forAccountForm textarea {
+  height: 120px;
+}
+
+.forAccountForm input[type="text"]:focus,
+.forAccountForm input[type="email"]:focus,
+.forAccountForm input[type="password"]:focus,
+.forAccountForm textarea:focus {
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8) inset;
+}
+
+.AccountErrMsg {
+  color: #f00;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.forAccountForm .btnCmn {
+  margin: 0 10px;
+}
+
+/* ----------------------------------------------------------------------
+ * jankenページ
+ * ---------------------------------------------------------------------- */
+.jankenPage {
+  background: #787 url(../images/janken_bg.jpg) no-repeat fixed top left/cover;
+}
+
+.selectHandWrapper {
+  margin: 30px auto;
+}
+
+.selectHandMsg {
+  margin-bottom: 20px;
+}
+
+.selectHand {
+  border-bottom: 3px dotted;
+  border-spacing: 20px 0;
+  display: table;
+  margin: 0 auto;
+}
+
+.selectHandForm {
+  display: table-cell;
+}
+
+.selectHandForm input[type="image"] {
+  outline: none;
+  width: 50px;
+  height: 55px;
+}
+
+.jankenWrapper {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 0 auto 30px;
+  padding: 20px;
+}
+
+.jankenCount {
+  color: rgba();
+  font-size: 2rem;
+}
+
+.janken {
+  border-spacing: 50px 0;
+  display: table;
+  margin: 0 auto;
+  padding: 20px;
+  table-layout: fixed;
+}
+
+.jankenItem {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.jankenHandImg {
+  display: block;
+  height: 176px;
+  width: 160px;
+}
+
+.jankenIcon {
+  width: 120px;
+}
+
+.jankenMeter {
+  width: 140px;
+}
+
+.jankenResultMsg {
+  color: rgb(96, 0, 255);
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.jankenResetForm {
+  margin-bottom: 10px;
+}
+
+/* ----------------------------------------------------------------------
+ * oseroページ
+ * ---------------------------------------------------------------------- */
+.oseroPage {
+  background: #787 url(../images/osero_bg.jpg) no-repeat fixed top left/cover;
+}
+
+/* ----------------------------------------------------------------------
+ * slotページ
+ * ---------------------------------------------------------------------- */
+.slotPage {
+  background: #787 url(../images/slot_bg.jpg) no-repeat fixed top left/cover;
+}
+
+.slotWrapper {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: table;
+  padding: 40px;
+  margin: 50px auto;
+  width: 400px;
+}
+
+.slot {
+  display: table-cell;
+}
+
+.slotImg {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid;
+  border-radius: 5px;
+  margin: 20px 40px 40px;
+  padding: 30px;
+}
+
+.slotImg img {
+  height: 100px;
+  opacity: 0.8;
+  width: 120px;
+}
+
+.slotBtn {
+  background-color: #f00;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 40px;
+  margin: 0 auto;
+  width: 40px;
+}
+
+.slotBtn:active {
+  transform: scale(0.95);
+}
+
+.slotPage .btnCmn {
+  display: block;
+  margin: 0 auto 10px;
+  ;
+}
+
+/* ----------------------------------------------------------------------
+ * memoryページ
+ * ---------------------------------------------------------------------- */
+.memoryPage {
+  background: #787 url(../images/memory_bg.jpg) no-repeat fixed top left/cover;
+}
+
+.memoryWrapper {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.memory {
+  width: 320px;
+  margin: 0 auto;
+}
+
+#stage {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  height: 75px;
+  margin: 8px;
+  perspective: 100px;
+  width: 55px;
+}
+
+.card {
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.8s;
+  width: 100%;
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+  height: 100%;
+  line-height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.card-back {
+  background: #f1c40f;
+  color: #fff;
+}
+
+.card-front {
+  background: #fff;
+  color: #f1c40f;
+  transform: rotateY(180deg);
+}
+
+.card.open {
+  transform: rotateY(180deg);
+}
+
+#score {
+  font-size: 20px;
+  color: #fff;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+#restart {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1;
+  margin: 0 auto 10px;
+  padding: 10px;
+  transition: 0.2s;
+  width: 140px;
+}
+
+#restart:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ----------------------------------------------------------------------
+ * tenSecondsページ
+ * ---------------------------------------------------------------------- */
+.tenSecondsPage {
+  background: #787 url(../images/ten_seconds_bg.jpg) no-repeat fixed top left/cover;
+}
